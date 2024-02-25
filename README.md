@@ -15,11 +15,25 @@
 - 使用者可以透過搜尋餐廳”名稱”來找到特定的餐廳
 - 使用者可以透過搜尋餐廳”類別”來找到特定的餐廳
 
-
 ### 使用方式
 
-step.1 複製此專案到本地資料夾 conle this project to local 
+- step.1 使用終端機，複製此專案到本地資料夾
+```
+💡$git clone https://github.com/ryo20021108/restaurantWork.git
+```
 
-`
-💡 $git clone https://github.com/ryo20021108/restaurantWork.git
-`
+- step.2 使用終端機安裝
+```
+$npm install
+```
+
+- step.3 執行此專案
+```  
+$npm run start
+```
+
+- step.4 若終端機出現`express server is running on http://localhost:3000`代表連線成功  
+
+
+
+
