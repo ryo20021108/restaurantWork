@@ -15,17 +15,25 @@ app.get('/', (req, res) => {
 })
 
 app.get('/restaurants', (req, res) => {
-  const keyword = req.query.keyword
+
+  const keyword = req.query.keyword?.toLowerCase().trim();
+  const searchKeys = ['name','name_en','category','location','phone','description']//搜尋keys白名單
   const matchedRestaurant = keyword ? restaurants.filter((restaurant) => 
-    Object.values(restaurant).some((p) => {
-      if(typeof p === 'string'){
-       return p.toLowerCase().includes(keyword.toLowerCase())
+    Object.keys(restaurant)
+    .filter((keys) => searchKeys.includes(keys))
+      .some((key) => {
+        const value = restaurant[key]
+        console.log(value)
+         if(typeof value === 'string'){
+          return value.toLowerCase().trim().includes(keyword)
+        }
+          else return false
       }
-      return false
-    })
+    )
 ) : restaurants
   res.render('index',{ matchedRestaurant, keyword })
 })
+
 
 app.get('/restaurant/:id', (req, res) => {
   const id = req.params.id
