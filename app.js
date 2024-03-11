@@ -16,14 +16,13 @@ app.get('/', (req, res) => {
 
 app.get('/restaurants', (req, res) => {
 
-  const keyword = req.query.keyword?.toLowerCase().trim();
+  const keyword = req.query.keyword?.toLowerCase().trim()
   const searchKeys = ['name','category','location','phone','description']//搜尋keys白名單
   const matchedRestaurant = keyword ? restaurants.filter((restaurant) => 
     Object.keys(restaurant)
     .filter((keys) => searchKeys.includes(keys))
       .some((key) => {
-        console.log(`Checking key: ${key}`);
-        const value = restaurant[key]
+    q        const value = restaurant[key]
         // console.log(value)
          if(typeof value === 'string'){
           return value.toLowerCase().trim().includes(keyword)
